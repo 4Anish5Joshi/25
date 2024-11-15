@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    overflow-y: auto; /* Allow vertical scrolling */
+    height: 100vh; /* Set height to viewport height */
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #000428, #004e92); /* Background gradient */
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 1.5s infinite alternate, move 10s linear infinite; /* Twinkling and moving effect */
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes move {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); } /* Move up */
+    100% { transform: translateY(0); } /* Move back down */
+}
+
+.container {
+    position: relative; /* Position relative for the container */
+    max-width: 1200px; /* Increased width for more space */
+    margin: auto;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #fff; /* White text for contrast */
+}
+
+header p {
+    font-size: 1.2em;
+    color: #ddd; /* Light gray for better readability */
+}
+
+.goals {
+    display: flex;
+    justify-content: space-between; /* Space out the goals */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.goal {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    border-radius: 12px; /* Slightly larger border radius */
+    padding: 30px; /* Increased padding */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Deeper shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    width: calc(48% - 20px); /* Adjust width to fit two goals in a row with spacing */
+}
+
+.goal:hover {
+    transform: translateY(-10px) scale(1.05); /* Lift and scale effect on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.goal h2 {
+    color: #007BFF; /* Blue color for headings */
+}
+
+.goal p {
+    color: #444; /* Dark gray for paragraph text */
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0; /* Margin around the countdown */
+}
+
+.countdown-item {
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 0 10px; /* Space between items */
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 1.5em; /* Larger font for numbers */
+}
+
+.priority-label {
+    position: absolute; /* Position relative to the goal card */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    padding: 5px 10px; /* Padding around the label */
+    border-radius: 5px; /* Rounded corners */
+    color: white; /* Text color */
+}
+
+.high-priority {
+   background-color: #FF5733; /* Red for high priority */
+}
+
+.medium-priority {
+   background-color: #28B463; 
+}
+
+.optional-priority {
+   background-color: #dfab00; 
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+   from { opacity: 0; }
+   to { opacity: 1; }
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the vertical scrollbar */
+    height: 12px; /* Height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #004e92; /* Dark blue color for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #007BFF; /* Mid-dark blue color for the thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+/* For Firefox */
+body {
+    scrollbar-color: #007BFF #004e92; /* Thumb color and track color */
+    scrollbar-width: thin; /* Makes the scrollbar thinner */
+}
+
+/* Media Queries for Mobile Responsiveness */
+
+@media (max-width: 768px) {
+   header h1 {
+       font-size: 2em; /* Smaller header size on mobile */
+   }
+
+   header p {
+       font-size:.9em; /* Smaller paragraph size on mobile */
+   }
+
+   .goals {
+       flex-direction: column; /* Stack goals vertically on small screens */
+       align-items:center; /* Center align items on mobile screens*/
+   }
+
+   .goal {
+       width: calc(90% - 20px); /* Full width with some margin on mobile */
+       margin-bottom :20px ;/* Space between goals on mobile*/
+   }
+
+   .countdown-item {
+       padding :10px ;/* Smaller padding on countdown items for mobile*/
+       font-size :1em ;/* Smaller font size for countdown numbers on mobile*/
+   }
+}
+
+@media (max-width :480px) {
+   .countdown-item span {
+       font-size:.9em ;/* Further reduce font size for very small screens*/
+   }
+
+   header h1 {
+       font-size :1.8em ; 
+   }
+
+   header p {
+       font-size:.8em ;
+   }
+}
