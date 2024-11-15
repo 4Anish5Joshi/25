@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Create stars dynamically
+
+     // Create stars dynamically
     const starsContainer = document.querySelector('.stars');
     const numberOfStars = 100;
  
@@ -20,6 +20,27 @@ document.addEventListener('DOMContentLoaded', () => {
  
         starsContainer.appendChild(star);
     }
+    
+    const progressPercentages = {
+       goal1: 10, // Percentage for Complete Syllabus
+       goal2: 45, // Percentage for Lose Weight
+       goal3: 8, // Percentage for Create Video
+       goal4: 30  // Percentage for Ready App
+   };
+
+   // Function to update progress bars
+   function updateProgressBar(goalId, percentage) {
+       const progressBar = document.getElementById(goalId);
+       progressBar.style.width = percentage + '%'; // Set width based on percentage
+       progressBar.innerText = percentage + '%'; // Display percentage inside the bar
+   }
+
+   // Update each progress bar with respective percentages
+   updateProgressBar('progress1', progressPercentages.goal1);
+   updateProgressBar('progress2', progressPercentages.goal2);
+   updateProgressBar('progress3', progressPercentages.goal3);
+   updateProgressBar('progress4', progressPercentages.goal4);
+   
     
     const goals = document.querySelectorAll('.goal');
      

@@ -26,7 +26,22 @@ body {
     border-radius: 50%;
     animation: twinkle 1.5s infinite alternate, move 10s linear infinite; /* Twinkling and moving effect */
 }
+.progress-container {
+    width: 100%; /* Full width */
+    background-color: #e0e0e0; /* Light gray background for the track */
+    border-radius: 10px; /* Rounded corners */
+    margin-top: 10px; /* Space above the progress bar */
+}
 
+.progress-bar {
+    height: 20px; /* Height of the progress bar */
+    background-color: #28B463; /* Green color for the filled part */
+    width: 0%; /* Initial width */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center text inside the bar */
+    line-height: 20px; /* Center text vertically */
+    color: white; /* Text color */
+}
 @keyframes twinkle {
     0% { opacity: 0.5; }
     100% { opacity: 1; }
